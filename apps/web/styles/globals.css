@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-qb-green: #2CA01C;
+  --color-safety-orange: #FF6700;
+  --color-slate-navy: #2C3E50;
+  --font-inter: "Inter", sans-serif;
+  --font-roboto-slab: "Roboto Slab", serif;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: #131313;
+  color: #ffffff;
+}
+
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl;
+}
