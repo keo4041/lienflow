@@ -1,7 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onLoginClick: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onLoginClick }) => {
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -12,7 +16,10 @@ const Header: React.FC = () => {
         <span className="text-xl font-black text-on-surface dark:text-white uppercase tracking-tighter">LienFlow</span>
       </div>
       <div className="flex items-center gap-4">
-        <button className="px-4 py-2 font-headline font-bold tracking-tight text-on-surface opacity-70 hover:opacity-100 transition-opacity">
+        <button
+          onClick={onLoginClick}
+          className="px-4 py-2 font-headline font-bold tracking-tight text-on-surface opacity-70 hover:opacity-100 transition-opacity"
+        >
           Log In
         </button>
         <motion.button
