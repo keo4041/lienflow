@@ -4,16 +4,55 @@
   --color-qb-green: #2CA01C;
   --color-safety-orange: #FF6700;
   --color-slate-navy: #2C3E50;
-  --font-inter: "Inter", sans-serif;
-  --font-roboto-slab: "Roboto Slab", serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-roboto-slab: var(--font-roboto-slab), serif;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
 }
 
-body {
-  font-family: var(--font-inter);
-  background-color: #131313;
-  color: #ffffff;
+@layer base {
+  body {
+    @apply font-inter bg-[#131313] text-white antialiased selection:bg-safety-orange/30 overflow-x-hidden;
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(44, 160, 28, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(255, 103, 0, 0.05) 0%, transparent 50%);
+  }
 }
 
-.glass-panel {
-  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl;
+@layer components {
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl;
+  }
+
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/5 shadow-2xl transition-all duration-300;
+  }
+
+  .carbon-texture {
+    background-image: radial-gradient(#222 1px, transparent 0);
+    background-size: 4px 4px;
+    background-position: -2px -2px;
+  }
+
+  .btn-primary {
+    @apply px-8 py-4 bg-qb-green hover:bg-qb-green/90 text-white font-black rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-qb-green/20 flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 bg-slate-navy hover:bg-slate-navy/90 text-white font-black rounded-lg transition-all duration-300 border border-white/10 flex items-center justify-center;
+  }
+
+  .btn-orange {
+    @apply px-8 py-4 bg-safety-orange hover:bg-safety-orange/90 text-white font-black rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-safety-orange/20 flex items-center justify-center;
+  }
+}
+
+/* Custom Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.bg-grid-white {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='white' stroke-opacity='0.03' %3E%3Cpath d='M0 .5H31.5V32' /%3E%3C/svg%3E");
 }
