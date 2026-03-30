@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LienFlow | The Secure Bridge for QuickBooks</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,700;6..72,800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#091d2e",
+              "surface-container-low": "#1c1b1b",
+              "on-tertiary": "#033900",
+              "on-background": "#e5e2e1",
+              "on-secondary-fixed-variant": "#36485b",
+              "on-error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#6ddf56",
+              "surface-tint": "#ffb595",
+              "surface-dim": "#131313",
+              "on-tertiary-fixed": "#012200",
+              "secondary": "#b5c8df",
+              "tertiary": "#6ddf56",
+              "surface-variant": "#353534",
+              "on-error": "#690005",
+              "tertiary-fixed": "#89fc6f",
+              "surface-container-highest": "#353534",
+              "primary": "#ffb595",
+              "outline": "#aa8a7d",
+              "on-surface": "#e5e2e1",
+              "surface-container-lowest": "#0e0e0e",
+              "inverse-on-surface": "#313030",
+              "primary-container": "#ff6700",
+              "secondary-container": "#36485b",
+              "on-tertiary-fixed-variant": "#055300",
+              "on-secondary": "#203243",
+              "on-tertiary-container": "#023900",
+              "error-container": "#93000a",
+              "inverse-primary": "#a23f00",
+              "on-primary": "#571e00",
+              "primary-fixed-dim": "#ffb595",
+              "outline-variant": "#5a4136",
+              "secondary-fixed": "#d1e4fb",
+              "secondary-fixed-dim": "#b5c8df",
+              "on-secondary-container": "#a4b7cd",
+              "surface-container-high": "#2a2a2a",
+              "on-surface-variant": "#e3bfb1",
+              "surface-container": "#201f1f",
+              "tertiary-container": "#3bad29",
+              "on-primary-fixed-variant": "#7c2e00",
+              "on-primary-fixed": "#351000",
+              "surface": "#131313",
+              "background": "#131313",
+              "on-primary-container": "#561e00",
+              "primary-fixed": "#ffdbcd",
+              "inverse-surface": "#e5e2e1",
+              "error": "#ffb4ab",
+              "surface-bright": "#393939"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            background-image:
+                radial-gradient(circle at 2px 2px, rgba(255,255,255,0.02) 1px, transparent 0);
+            background-size: 24px 24px;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(90, 65, 54, 0.15);
+        }
+        .text-gradient-orange {
+            background: linear-gradient(135deg, #ffb595 0%, #ff6700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary-gradient {
+            background: linear-gradient(135deg, #ffb595 0%, #ff6700 100%);
+        }
+        .carbon-texture {
+            background:
+                linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+                linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+                linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+                linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+                linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+                linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+            background-color: #131313;
+            background-size: 20px 20px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased selection:bg-primary-container selection:text-white">
+<!-- Section 1: TopAppBar (Sticky Header) -->
+<header class="fixed top-0 w-full z-50 bg-zinc-950/60 backdrop-blur-xl border-b border-white/10 shadow-[0_16px_32px_rgba(0,0,0,0.4)]">
+<div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-orange-500" style="font-size: 28px;">construction</span>
+<span class="text-xl font-bold italic text-orange-500 tracking-tighter font-headline">The Secure Bridge</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-zinc-400 hover:text-zinc-100 transition-colors text-sm font-semibold tracking-wide uppercase" href="#">Product</a>
+<a class="text-zinc-400 hover:text-zinc-100 transition-colors text-sm font-semibold tracking-wide uppercase" href="#">Audit Shield</a>
+<a class="text-zinc-400 hover:text-zinc-100 transition-colors text-sm font-semibold tracking-wide uppercase" href="#">Pricing</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden md:block text-zinc-100 hover:bg-white/5 transition-colors px-4 py-2 rounded-lg text-sm font-bold active:scale-95 duration-200">Login</button>
+<button class="bg-[#2CA01C] hover:bg-[#238016] text-white px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 transition-transform active:scale-95">
+                    Sync with QuickBooks
+                </button>
+</div>
+</div>
+</header>
+<main class="pt-24">
+<!-- Section 2: Hero -->
+<section class="relative px-6 py-20 lg:py-32 overflow-hidden">
+<div class="absolute inset-0 carbon-texture opacity-20 -z-10"></div>
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm">verified</span>
+                        Automation for Contractors
+                    </div>
+<h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight text-zinc-100">
+                        Turn QuickBooks Invoices into <span class="text-gradient-orange">Certified Mail</span> in One Click.
+                    </h1>
+<p class="text-lg text-zinc-400 font-body leading-relaxed max-w-xl">
+                        Stop driving to the Post Office. We auto-detect jobs, verify addresses with USPS, and mail your Preliminary Notices for less than the cost of a stamp.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="btn-primary-gradient text-on-primary-container px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-orange-950/20 flex items-center justify-center gap-3 hover:scale-105 transition-transform active:scale-95">
+                            Start Free Trial (Sync QuickBooks)
+                            <span class="material-symbols-outlined">sync_alt</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-8 pt-8 items-center grayscale opacity-60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<span class="text-xs font-bold uppercase tracking-widest text-zinc-500">QuickBooks Partner</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">verified_user</span>
+<span class="text-xs font-bold uppercase tracking-widest text-zinc-500">CASS-Certified</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">local_post_office</span>
+<span class="text-xs font-bold uppercase tracking-widest text-zinc-500">USPS Compatible</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="glass-panel p-4 rounded-2xl shadow-2xl transform lg:rotate-2 lg:scale-105">
+<img alt="LienFlow Interface" class="rounded-lg w-full" data-alt="Modern dashboard UI showing financial reports and mailing status on a sleek glass interface with glowing orange accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeYRyA0cqhc7ww_4KlY2JuK0neRbi4jwVJaYUWhoeKLGVFttLlysdJLJAmz_S8iFo-4TLz15dHjV5HEhnBMbHcvH0YadiA38aQo_BvyhUz2HbfloQfdUh-ZqHA7eZU2BItcLcqvH_P8gC9o8zoyVZwEbOwTP8GHiKVO_dWAF2nrqONdqWxJpdunPj84mJPTrWog7xZH9bhqP2OwlDL-Hen7ASP_EMqgvENpCBg22a0ZG9-piTghnLUlQ_dFeNcCQP_0ZqRjdqD6lAL"/>
+<div class="absolute -bottom-6 -left-6 glass-panel p-6 rounded-xl border-orange-500/30">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-orange-500">mark_email_read</span>
+</div>
+<div>
+<p class="text-xs text-zinc-400 font-bold uppercase tracking-tighter">Latest Notice</p>
+<p class="text-lg font-bold text-zinc-100">Certified #4920 Delivered</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Agitation (Comparison) -->
+<section class="py-24 px-6 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline text-4xl lg:text-5xl font-bold text-zinc-100">Stop Burning Daylight.</h2>
+<p class="text-zinc-500 max-w-2xl mx-auto">The construction office has evolved. Why are you still licking stamps?</p>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Left: Old Way -->
+<div class="glass-panel p-10 rounded-3xl space-y-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-9xl">history</span>
+</div>
+<h3 class="text-2xl font-bold font-headline text-zinc-400">The Old Way</h3>
+<div class="aspect-video rounded-xl overflow-hidden grayscale contrast-125 brightness-50 mb-6">
+<img alt="Messy Desk" class="w-full h-full object-cover" data-alt="A chaotic office desk with stacks of paper invoices, envelopes, and coffee stains in dramatic moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALUHT65NyTIzMpUOvMLC3ZEWcNO2aboLea-goWYIFqVgN8rxglrVQyxMJryPCprs7J2yJJ-HYnTprlissWHdm7q7W2pusmO6GVIQxQY-IaDXbUf_CgM06WvQ9Z4xKk_TBMYMVz_YkVKf7gtxvVTOxxzQUSu-vlz7y44u5UglntuBUaAd8AOisWk0TzjwN6ux3ZjT-1RnN7Llhrk8h_VbO6zhWFgmLNH9XrZQ7_kbSV7WwovpBJdr2mZReJUOeBzbY2xsNGpHQY-qCY"/>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-zinc-500">
+<span class="material-symbols-outlined text-error">close</span>
+                                Manual address entry (prone to typos)
+                            </li>
+<li class="flex items-center gap-3 text-zinc-500">
+<span class="material-symbols-outlined text-error">close</span>
+                                Printing, folding, and stuffing envelopes
+                            </li>
+<li class="flex items-center gap-3 text-zinc-500">
+<span class="material-symbols-outlined text-error">close</span>
+                                Fighting for parking at the Post Office
+                            </li>
+</ul>
+</div>
+<!-- Right: LienFlow Way -->
+<div class="glass-panel p-10 rounded-3xl space-y-8 relative overflow-hidden border-orange-500/20 bg-orange-500/5">
+<div class="absolute top-0 right-0 p-4 text-orange-500/20">
+<span class="material-symbols-outlined text-9xl">rocket_launch</span>
+</div>
+<h3 class="text-2xl font-bold font-headline text-orange-500">The LienFlow Way</h3>
+<div class="aspect-video rounded-xl overflow-hidden mb-6 border border-orange-500/30">
+<img alt="Clean Dashboard" class="w-full h-full object-cover" data-alt="Sleek computer screen displaying minimalist financial charts and digital proof of delivery certificates in a clean modern office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxxhVA_WVdi3pw4zi8p-K3aP4YGB72j2xjz8LyYRiLzURdtVeYutX2X_A3EJdq1IhS-Xksb26G_bDmTiGLM8ZB8r5kTgpdEQhgRrPq_QuPjp1DIfStO4FwaR96K25JaV7Raqv1U8tKZyPOHTKTxwQf27n-RaL2WHX2Eg1zTJHU9LvbRqbGMOYW_ZqCAIcGkvSct7Mq9i2ffUP3XkFNi4AK7vQcUNKcxc_kA2iXz5JLNVmUZV-WKqdsP7PyOUEP1bmNg-dn0aBmKWVD"/>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-zinc-200">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+                                Auto-syncs directly from QuickBooks
+                            </li>
+<li class="flex items-center gap-3 text-zinc-200">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+                                USPS CASS address verification
+                            </li>
+<li class="flex items-center gap-3 text-zinc-200">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+                                24/7 Forensic Audit Shield tracking
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Kill Sheet Calculator -->
+<section class="py-24 px-6 relative">
+<div class="max-w-4xl mx-auto glass-panel p-12 rounded-[2.5rem] border-zinc-700/50">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="font-headline text-4xl font-bold mb-6">The "Postage Tax" Calculator</h2>
+<p class="text-zinc-400 mb-8">Calculate how much manual labor and high postage costs are draining your bottom line monthly.</p>
+<div class="space-y-6">
+<div>
+<label class="text-xs font-bold uppercase tracking-widest text-zinc-500 block mb-2">Monthly Invoices</label>
+<input class="w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-orange-500" type="range"/>
+<div class="flex justify-between text-xs font-bold mt-2 text-zinc-600">
+<span>0</span>
+<span>500+</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-white/5">
+<p class="text-xs font-bold text-zinc-500 mb-1">Estimated Savings</p>
+<p class="text-4xl font-headline font-black text-tertiary">$1,420<span class="text-sm font-normal text-zinc-600 ml-2">/month</span></p>
+</div>
+</div>
+</div>
+<div class="bg-zinc-950 p-8 rounded-3xl border border-white/5 space-y-6">
+<div class="flex justify-between items-center pb-4 border-b border-white/10">
+<span class="text-sm text-zinc-400">Postage Savings</span>
+<span class="text-sm font-bold text-tertiary">-$450.00</span>
+</div>
+<div class="flex justify-between items-center pb-4 border-b border-white/10">
+<span class="text-sm text-zinc-400">Admin Labor hours</span>
+<span class="text-sm font-bold text-tertiary">12 hours saved</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-zinc-400">Compliance Risk</span>
+<span class="text-sm font-bold text-tertiary">Eliminated</span>
+</div>
+<button class="w-full py-4 bg-zinc-900 border border-white/10 rounded-xl font-bold text-orange-500 hover:bg-zinc-800 transition-colors">
+                            Claim My Rebate
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Audit Shield -->
+<section class="py-24 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-tertiary opacity-20 blur-2xl group-hover:opacity-30 transition-opacity"></div>
+<div class="relative glass-panel rounded-[3rem] overflow-hidden">
+<div class="grid lg:grid-cols-2">
+<div class="p-12 lg:p-20 space-y-8">
+<div class="flex items-center gap-3 text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="text-sm font-black uppercase tracking-[0.2em]">Audit Shield</span>
+</div>
+<h2 class="font-headline text-5xl font-bold">Forensic Accounting for Your Job Site</h2>
+<p class="text-zinc-400 text-lg leading-relaxed">
+                                    Every notice sent is digitally fingerprinted. We store USPS proof of delivery, tracking history, and certified mail receipts in a secure vault, ready for any legal challenge or audit.
+                                </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-orange-500">qr_code_scanner</span>
+<div>
+<p class="font-bold">Digital Chain of Custody</p>
+<p class="text-sm text-zinc-500">Every touchpoint logged by USPS is instantly synced to your QB invoice.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-orange-500">verified</span>
+<div>
+<p class="font-bold">USPS CASS Address Scans</p>
+<p class="text-sm text-zinc-500">We verify the physical existence of every shipping address before you pay.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative h-full min-h-[400px]">
+<img alt="Forensic Scan" class="w-full h-full object-cover" data-alt="Technological visualization of a digital laser scanner passing over a business invoice with data overlays and green glowing points" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpLmrv746pExhzfLoQ5Ie7-bFCO25R6yYLLb16bP4EFaXuV__ifY1XJHK1FZy3-UTuDR-nh2IP1aGP8xsHAPil7SPGBxiu03dEzF_zXq5EZRwHlcmPumTA_zSH9bkex2COJqKD44Jq3NzuytsO3V1XLQtAzG8HYV7j5YGjf-rnhHb2IruOUjOjDTCC7H3c8UHVkGOx4n_POwCM96N-CkUULKCq-XUWk2tnWjinfki_iUcEWRhIc5EARUFrmKrfd_vc_3jjj4_30YEN"/>
+<div class="absolute inset-0 bg-gradient-to-l from-zinc-900/80 to-transparent lg:hidden"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Pricing -->
+<section class="py-24 px-6 bg-surface-container">
+<div class="max-w-5xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl lg:text-5xl font-bold mb-4">Precision Pricing.</h2>
+<p class="text-zinc-500">Choose the volume that fits your project pipeline.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Pay-As-You-Go -->
+<div class="glass-panel p-10 rounded-3xl flex flex-col items-center text-center space-y-6">
+<div class="p-3 rounded-full bg-zinc-800 text-zinc-400">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h3 class="text-2xl font-bold">Pay-As-You-Go</h3>
+<div class="space-y-1">
+<p class="text-5xl font-headline font-black">$24.95</p>
+<p class="text-xs font-bold text-zinc-500 uppercase">Per Notice Sent</p>
+</div>
+<ul class="text-sm text-zinc-400 space-y-3 pt-6 w-full text-left">
+<li class="flex gap-2"><span class="material-symbols-outlined text-zinc-600 text-sm">check</span> QuickBooks Sync Included</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-zinc-600 text-sm">check</span> USPS Tracking Included</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-zinc-600 text-sm">check</span> No Monthly Fees</li>
+</ul>
+<button class="w-full py-4 border border-white/10 rounded-xl font-bold hover:bg-white/5 transition-colors mt-auto">Get Started</button>
+</div>
+<!-- Pro Subscription -->
+<div class="glass-panel p-10 rounded-3xl flex flex-col items-center text-center space-y-6 border-orange-500/40 relative">
+<div class="absolute -top-4 bg-orange-500 text-on-primary font-black px-4 py-1 rounded-full text-[10px] uppercase tracking-widest">
+                            Cheaper than DIY
+                        </div>
+<div class="p-3 rounded-full bg-orange-500/20 text-orange-500">
+<span class="material-symbols-outlined">workspace_premium</span>
+</div>
+<h3 class="text-2xl font-bold">Pro Subscription</h3>
+<div class="space-y-1">
+<p class="text-5xl font-headline font-black">$19.95</p>
+<p class="text-xs font-bold text-zinc-500 uppercase">Per Notice + $99/mo</p>
+</div>
+<ul class="text-sm text-zinc-300 space-y-3 pt-6 w-full text-left">
+<li class="flex gap-2"><span class="material-symbols-outlined text-tertiary text-sm">check</span> All Pay-As-You-Go Features</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-tertiary text-sm">check</span> Priority Batch Processing</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-tertiary text-sm">check</span> White-Glove Onboarding</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-tertiary text-sm">check</span> Multiple Users/Projects</li>
+</ul>
+<button class="w-full py-4 btn-primary-gradient text-on-primary-container rounded-xl font-black text-lg hover:scale-105 transition-transform mt-auto">Start Pro Trial</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 7: FAQ -->
+<section class="py-24 px-6">
+<div class="max-w-3xl mx-auto space-y-12">
+<h2 class="font-headline text-4xl font-bold text-center">Frequently Asked Questions</h2>
+<div class="space-y-4">
+<div class="glass-panel p-6 rounded-2xl">
+<details class="group">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="font-bold text-zinc-200">How do GCs react to automated notices?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="pt-4 text-zinc-400 text-sm leading-relaxed">
+                                Most General Contractors appreciate the professionalism. By automating your Preliminary Notices, you're signaling that your back-office is organized and your lien rights are protected, which often leads to faster payments.
+                            </p>
+</details>
+</div>
+<div class="glass-panel p-6 rounded-2xl">
+<details class="group">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="font-bold text-zinc-200">Can I cancel my subscription at any time?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="pt-4 text-zinc-400 text-sm leading-relaxed">
+                                Absolutely. We believe in earning your business every month. There are no long-term contracts for our Pro plan, and Pay-As-You-Go stays active as long as you have invoices to send.
+                            </p>
+</details>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-zinc-950 w-full py-12 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<span class="text-lg font-black text-zinc-300">LienFlow</span>
+<p class="font-['Inter'] text-xs text-zinc-500">© 2024 LienFlow. Built for The Tactical Architect.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-zinc-500 hover:text-zinc-100 transition-opacity duration-300 text-xs" href="#">Privacy Policy</a>
+<a class="text-zinc-500 hover:text-zinc-100 transition-opacity duration-300 text-xs" href="#">Terms of Service</a>
+<a class="text-zinc-500 hover:text-zinc-100 transition-opacity duration-300 text-xs" href="#">QuickBooks Integration</a>
+<a class="text-zinc-500 hover:text-zinc-100 transition-opacity duration-300 text-xs" href="#">Support</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-zinc-900/40 backdrop-blur-2xl shadow-[0_-8px_24px_rgba(0,0,0,0.5)] rounded-t-[1.5rem] overflow-hidden">
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-orange-400 to-orange-600 text-white rounded-2xl px-4 py-2 scale-105 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-semibold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 py-2 hover:text-zinc-200 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">sync_alt</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-semibold">Lien Sync</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 py-2 hover:text-zinc-200 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-semibold">Payments</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 py-2 hover:text-zinc-200 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-semibold">Settings</span>
+</a>
+</nav>
+<div class="fixed bottom-24 right-6 z-40 md:hidden">
+<button class="w-14 h-14 rounded-full btn-primary-gradient text-white shadow-2xl flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+</body></html>

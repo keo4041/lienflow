@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LienFlow | Secure Authentication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,wght@0,400;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#ffb595",
+              "on-tertiary-fixed-variant": "#055300",
+              "on-tertiary": "#033900",
+              "tertiary": "#6ddf56",
+              "tertiary-fixed": "#89fc6f",
+              "tertiary-container": "#3bad29",
+              "outline-variant": "#5a4136",
+              "surface-tint": "#ffb595",
+              "on-tertiary-container": "#023900",
+              "primary-container": "#ff6700",
+              "outline": "#aa8a7d",
+              "tertiary-fixed-dim": "#6ddf56",
+              "surface-variant": "#353534",
+              "on-primary": "#571e00",
+              "secondary-fixed-dim": "#b5c8df",
+              "primary": "#ffb595",
+              "inverse-on-surface": "#313030",
+              "secondary-container": "#36485b",
+              "inverse-surface": "#e5e2e1",
+              "on-surface-variant": "#e3bfb1",
+              "on-error-container": "#ffdad6",
+              "secondary": "#b5c8df",
+              "secondary-fixed": "#d1e4fb",
+              "on-secondary-container": "#a4b7cd",
+              "inverse-primary": "#a23f00",
+              "surface-container-lowest": "#0e0e0e",
+              "on-secondary-fixed": "#091d2e",
+              "on-secondary": "#203243",
+              "surface-container-high": "#2a2a2a",
+              "on-secondary-fixed-variant": "#36485b",
+              "surface-container-low": "#1c1b1b",
+              "surface-container": "#201f1f",
+              "background": "#131313",
+              "error": "#ffb4ab",
+              "surface-container-highest": "#353534",
+              "error-container": "#93000a",
+              "on-tertiary-fixed": "#012200",
+              "on-surface": "#e5e2e1",
+              "on-primary-fixed-variant": "#7c2e00",
+              "on-error": "#690005",
+              "surface-bright": "#393939",
+              "primary-fixed": "#ffdbcd",
+              "on-background": "#e5e2e1",
+              "surface-dim": "#131313",
+              "surface": "#131313",
+              "on-primary-container": "#561e00",
+              "on-primary-fixed": "#351000",
+              "quickbooks-green": "#2CA01C"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            background-image:
+                radial-gradient(circle at 2px 2px, rgba(255,255,255,0.02) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .carbon-texture {
+            background: linear-gradient(27deg, #131313 5px, transparent 5px) 0 5px,
+                        linear-gradient(207deg, #131313 5px, transparent 5px) 10px 0px,
+                        linear-gradient(27deg, #1a1a1a 5px, transparent 5px) 0px 10px,
+                        linear-gradient(207deg, #1a1a1a 5px, transparent 5px) 10px 5px,
+                        linear-gradient(90deg, #151515 10px, transparent 10px),
+                        linear-gradient(#111 25%, #151515 25%, #151515 50%, transparent 50%, transparent 75%, #171717 75%, #171717);
+            background-color: #131313;
+            background-size: 20px 20px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body text-on-surface selection:bg-primary-container/30">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full flex items-center justify-between px-6 py-6 bg-[#131313]/40 backdrop-blur-xl z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="gavel">gavel</span>
+<h1 class="font-headline font-bold text-2xl tracking-tight text-on-surface">LienFlow</h1>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<span class="font-label text-[10px] uppercase tracking-widest font-semibold text-gray-400">Security Protocol V.4.0</span>
+</div>
+</header>
+<main class="min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-32">
+<!-- Brand Identity Section -->
+<div class="w-full max-w-md text-center mb-10">
+<div class="inline-flex items-center justify-center p-3 rounded-2xl bg-surface-container-high mb-6 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary-fixed-dim text-4xl" data-icon="lock_open" style="font-variation-settings: 'FILL' 1;">lock_open</span>
+</div>
+<h2 class="font-headline italic font-black text-4xl text-on-surface mb-2 tracking-tight">The Secure Bridge</h2>
+<p class="font-label text-[10px] uppercase tracking-[0.2em] text-primary-fixed-dim font-bold mb-8">Architectural Lien Management</p>
+</div>
+<!-- QuickBooks Integration -->
+<div class="w-full max-w-md mb-8">
+<button class="w-full bg-[#2CA01C] hover:bg-[#238016] text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-all duration-300 transform active:scale-[0.98] shadow-lg shadow-black/20">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+<span class="font-body">Sync with QuickBooks</span>
+</button>
+<p class="text-center mt-4 px-6 text-sm text-on-surface-variant font-medium leading-relaxed">
+                Connect your QuickBooks account to start automating your notices in seconds.
+            </p>
+</div>
+<!-- Main Auth Card -->
+<section class="w-full max-w-md glass-panel rounded-3xl border border-outline-variant/15 overflow-hidden shadow-2xl relative">
+<!-- Tabs -->
+<div class="flex border-b border-outline-variant/10">
+<button class="flex-1 py-5 text-sm font-label uppercase tracking-wider font-bold text-primary border-b-2 border-primary-container bg-primary-container/5">
+                    Login
+                </button>
+<button class="flex-1 py-5 text-sm font-label uppercase tracking-wider font-bold text-gray-500 hover:text-on-surface transition-colors">
+                    Create Account
+                </button>
+</div>
+<!-- Form -->
+<form class="p-8 space-y-6">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant ml-1" for="email">
+                        Corporate Email
+                    </label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant/20 rounded-xl py-4 pl-12 pr-4 text-on-surface placeholder:text-gray-600 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" id="email" placeholder="name@firm.com" type="email"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" data-icon="mail">mail</span>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="block font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant" for="password">
+                            Access Key
+                        </label>
+<a class="text-[10px] font-label font-bold uppercase tracking-tighter text-primary-fixed-dim hover:text-primary" href="#">Recovery</a>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant/20 rounded-xl py-4 pl-12 pr-4 text-on-surface placeholder:text-gray-600 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" id="password" placeholder="••••••••" type="password"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" data-icon="key">key</span>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-container rounded-xl text-on-primary font-bold text-lg flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.97] transition-all shadow-xl shadow-primary-container/20 mt-4" type="submit">
+                    Sign In
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Security Meta -->
+<div class="flex items-center justify-center gap-2 pt-4 opacity-40">
+<span class="material-symbols-outlined text-xs" data-icon="verified_user">verified_user</span>
+<span class="text-[10px] font-label uppercase tracking-widest font-bold">AES-256 Encrypted Tunnel</span>
+</div>
+</form>
+</section>
+<!-- Footer Meta -->
+<div class="mt-12 flex flex-wrap justify-center gap-6 text-[10px] font-label uppercase tracking-widest font-bold text-gray-600">
+<a class="hover:text-primary transition-colors" href="#">Privacy Charter</a>
+<span class="w-1 h-1 bg-gray-800 rounded-full"></span>
+<a class="hover:text-primary transition-colors" href="#">Network Status</a>
+<span class="w-1 h-1 bg-gray-800 rounded-full"></span>
+<a class="hover:text-primary transition-colors" href="#">Legal Framework</a>
+</div>
+</main>
+<!-- Shell Suppression Check: Transactional page, Hide Nav Bars -->
+<!-- Bottom Bar only for decoration or essential global help -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-3 bg-[#131313]/60 backdrop-blur-2xl md:hidden">
+<div class="flex flex-col items-center justify-center text-gray-500">
+<span class="material-symbols-outlined" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-['Inter'] uppercase tracking-[0.05rem] text-[10px] font-semibold mt-1">Secure</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-500">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-['Inter'] uppercase tracking-[0.05rem] text-[10px] font-semibold mt-1">Help</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-500">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+<span class="font-['Inter'] uppercase tracking-[0.05rem] text-[10px] font-semibold mt-1">Privacy</span>
+</div>
+</footer>
+<!-- Carbon Fiber Overlay for texture -->
+<div class="fixed inset-0 pointer-events-none opacity-20 z-[-1] carbon-texture"></div>
+<!-- Background Image Asset (Abstract Industrial) -->
+<div class="fixed inset-0 z-[-2] overflow-hidden">
+<img alt="Background" class="w-full h-full object-cover opacity-20 grayscale brightness-50" data-alt="Abstract architectural shot of structural steel beams and glass reflections in deep shadows with dramatic moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd3mRnOOTIJTIY0YxeVlwbupAr68MF316SmpEom2o6MBC17FNm-lp0Y0sDCvQnj-zuzKw3kxHNlFJMs9mEIhTUG28upak7loYY6Soka2pIKJeRnjzwsmBuQAkBBcYmuxdNV0jXHCw9JpGuCeLbPJuAijLFxRF8fKCfiQVGSlcF-46PN6jIDnSU3zZy8h5PLWLU2aoVyJ_dEitEQ9pQirbDAgS4f_6Ajd9neYT7VGvP6MZIPTK9CddQQ-LCd0KqJwoyLPaZecRCdMXj"/>
+</div>
+</body></html>
